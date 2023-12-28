@@ -39,6 +39,8 @@ public class SwitchExample {
 		logger.log(Level.INFO, "{0}", newSwitch('A'));
 		logger.log(Level.INFO, "{0}", newSwitch(true));
 		logger.log(Level.INFO, "{0}", newSwitch(null));
+		logger.log(Level.INFO, "{0}",
+				newSwitch(new Person("User", LocalDate.now())));
 	}
 	
 	static String formatter(Object object) {
@@ -105,8 +107,43 @@ public class SwitchExample {
 			case String s -> String.format("It is a string %s", s);
 			case Character c -> String.format("It is a char %s", c);
 			case Boolean b -> String.format("It is a boolean %s", b);
+			case Person p -> String.format("It is a person %s", p);
 			case null -> "It is a null object";
 			default -> object.toString();
 		};
+	}
+	
+static class Person {
+		
+		private String name;
+		private LocalDate birthday;
+		
+		public Person(String name, LocalDate birthday) {
+			this.name = name;
+			this.birthday = birthday;
+		}
+		
+		public String getName() {
+			return name;
+		}
+		
+		public void setName(String name) {
+			this.name = name;
+		}
+		
+		public LocalDate getBirthday() {
+			return birthday;
+		}
+		
+		public void setBirthday(LocalDate birthday) {
+			this.birthday = birthday;
+		}
+		
+		@Override
+		public String toString() {
+			return new StringBuilder().append(getName()).append(", ")
+					.append(getBirthday()).toString();
+		}
+		
 	}
 }
