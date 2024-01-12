@@ -10,7 +10,7 @@ public class VariablesJavaI {
 	public static void main(String[] args) {
 		
 		String name = "Peter";
-		char gener = 'M';
+		char gender = 'M';
 		int age = 10;
 		float height = 1.82f;
 		double weight = 83.5;
@@ -20,7 +20,7 @@ public class VariablesJavaI {
 		
 		List<Object> person = new ArrayList<>();
 		person.add(name);
-		person.add(gener);
+		person.add(gender);
 		person.add(age);
 		person.add(height);
 		person.add(weight);
